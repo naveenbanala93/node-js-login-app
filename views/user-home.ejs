@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<style>
+    		.profile-img
+			{
+			    width: 200px;
+			    height: 200px;
+			    margin: 0 auto 10px;
+			    display: block;
+			    -moz-border-radius: 50%;
+			    -webkit-border-radius: 50%;
+			    border-radius: 50%;
+			}
+			.upload-button {
+			    padding: 4px;
+			    border: 1px solid black;
+			    border-radius: 5px;
+			    display: block;
+			    float: left;
+			}
+    	</style>	
+  
+		<title>Welcome</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	</head>
+    <body ><div id="app">
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+
+					<!-- Collapsed Hamburger -->
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#app-navbar-collapse">
+						<span class="sr-only">Toggle Navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+
+					<!-- Branding Image -->
+					<a class="navbar-brand" href="">HomePage</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="app-navbar-collapse">
+					<!-- Left Side Of Navbar -->
+					<ul class="nav navbar-nav">&nbsp;
+					</ul>
+
+					<!-- Right Side Of Navbar -->
+					<ul class="nav navbar-nav navbar-right">
+						<!-- Authentication Links -->
+				
+						
+						 
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false">
+							<%= userProfile.firstname%>
+							  <span class="caret"></span> </a>
+
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="/users/logout"
+									onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+										Logout </a>
+
+									<form id="logout-form" action="/users/logout"
+										method="GET" style="display: none;"></form>
+								</li>
+							</ul>
+						</li> 
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		
+	</div>
+	<div class="container">
+		<div class="row">
+		  	<div class="col-md-12 col-md-offset-0">
+		        <div class="panel panel-default " style="margin-top:20px">
+		            <div class="panel-heading">
+		                <span>
+		                	<strong >welcome to home page  </strong>
+		                	<strong style="float:right;"><%= userProfile.firstname+" "+userProfile.lastname %>,  You are Logged In .</strong>
+		                </span>
+		            </div>
+
+		            <div class="panel-body">
+	                	<div class="col-md-12">
+	                		<div class ="col-md-9">
+							<h3 align="center">Your Profile Details</h3>
+								
+							<div class="col-md-2">
+								<li>First Name</li>
+								<li>Last Name</li>
+								<li>Email - ID</li>
+								<li>Mobile No</li>	
+							</div>	
+							<div class="col-md-7">
+								<div>
+								<strong>: <%=userProfile.firstname%> </strong>
+								</div>
+								<div>
+								<strong>: <%=userProfile.lastname%></strong>
+								</div>
+								<div>
+								<strong>: <%=userProfile.email%></strong>
+								</div>
+								<div>
+								<strong>: <%=userProfile.mobileno%></strong>
+								</div>
+							</div>	
+								
+
+
+	                		</div>
+
+	                		<div class="col-md-3  " style="float:right;">
+                				<h3 align="center">Your Profile Picture</h3>
+                				<% if(userProfile.imagename) {
+                					
+                					%>
+								<img  class="profile-img profile-pic" src="../<%=
+								userProfile.imagename%>"
+								            					alt="">
+                				<%} else {%>
+                				<img  class="profile-img profile-pic" src="../images/profile_avatar.jpg"
+            					alt="">
+                				<%}%>
+	                			
+            					<br>
+            					<form action="/users/setProfilePic" method="post" enctype="multipart/form-data">
+            					<input class="file-upload" type="file" accept="image/*" value="Set Profile Picture" name="file" required ><br>
+            					<input class="upload-button" type="submit" value="Set Image"
+            					style="float: right;">
+            				</form>
+	                		</div>
+	                	</div>
+
+		             
+       
+		            </div>
+		        </div>
+		    </div>
+		 </div>
+	</div>
+
+
+    <script src="/javascripts/app.js"></script>
+    <script>
+    	$(document).ready(function() {
+
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+   
+});
+
+    </script>
+
+    </body>
+</html>
+
