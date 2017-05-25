@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/loginStyles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<title>Welcome</title>
+	</head>
+	<body class="bodybackground">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Buy a Product</h1>
+            <div class="account-wall">
+                <form class="form-signin" action="/buyItem" method="post">
+                <input type="text" name="username" class="form-control" placeholder="Name" required ><br>
+                <input type="text" name="mobileno" class="form-control" placeholder="Mobile No" required ><br>
+                <select  name="productname" class="form-control" id ="something"required >
+                    <option value="">select product</option>
+                    <option  value="mobile">Mobile</option>
+                    <option value="tv">TV</option>
+                    <option  value="laptop">Laptop</option>
+                </select> 
+                <br>
+                <select id="mobileshow" name="mobilename" class="form-control" style="display:none"   >
+                     <option value="">select Brand </option>
+                    <option value="samsung">SAMSUNG</option>
+                    <option value="redmi">REDMi</option>
+                    <option value="iPhone">iPhone</option>
+                </select> 
+           
+                <select  id="tvshow" name="tvname" class="form-control" style="display:none" >
+                     <option value="">select Brand </option>
+                    <option value="samsung">SAMSUNG</option>
+                    <option value="lg">LG</option>
+                </select> 
+                
+                <select  id="laptopshow" name="laptopname" class="form-control" style="display:none" >
+                     <option value="">select Brand </option>
+                    <option value="lenova">Lenova</option>
+                    <option value="dell">DELL</option>
+                    <option value="hp">HP</option>
+                </select> 
+                <br>
+            
+                <button class="btn btn-lg btn-primary btn-block" type="submit" >
+                    Submit</button>
+               
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+            
+    $(document).ready(function(){
+       $("#something").change(function () {
+          var selected_option = $('#something').val();
+
+          if (selected_option === 'mobile') {
+            $("#laptopshow").hide();
+            $("#tvshow").hide();
+            $("#mobileshow").show();
+          }
+          if (selected_option === 'tv') {
+           $("#laptopshow").hide();
+            $("#tvshow").show();
+            $("#mobileshow").hide();
+          }
+          if (selected_option === 'laptop') {
+           $("#laptopshow").show();
+            $("#tvshow").hide();
+            $("#mobileshow").hide();
+          }
+        
+})
+
+    });
+</script>
+
+	
+</body>
+</html>
