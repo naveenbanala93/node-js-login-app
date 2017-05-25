@@ -11,11 +11,11 @@ var transporter = nodemailer.createTransport( {
                         service:'gmail', 
                         auth: {
                             type:'OAuth2', 
-                            user:'sampleproject888@gmail.com', 
-                            clientId:'454521292873-gt6s2i4r8tfi8eg56mo4512lv7dhbkkd.apps.googleusercontent.com', 
-                            clientSecret:'4D_zfRDA0twr2ni1BOwduhAQ', 
-                            refreshToken:'1/dF_z_q_aQfx6G76uX_PIbv67Tx98d1O1CSfAIsn7__c', 
-                            accessToken:'ya29.Gls_BM9D_c67g7kAAJokISRd4l3Brwb_248zlrnfpdEHCEgKctGiBSWCRHqX3yP111kPnNjmuXLbVd3jbIxihLFOsZcM_oGYpo9NRNNPYMpKe1E8QegG21D3p0HE'
+                            user:'', 
+                            clientId:'', 
+                            clientSecret:'', 
+                            refreshToken:'', 
+                            accessToken:''
                         }
                     })
 
@@ -33,7 +33,7 @@ module.exports.sendLinkToEmail=function(req,res){
 			//generate a token for password change link..
 
 			tokenGenerated=(Math.random() + 1).toString(36).substring(16) + Date.now() + (Math.random() + 1).toString(36).substring(16);
-			link="http://192.168.150.69:3000/users/changePassword/"+ tokenGenerated;
+			link=""+ tokenGenerated;
 			
 			//update generated token in database
 			Users.update({email:emailId},{passtoken:tokenGenerated},function(err){
@@ -44,7 +44,7 @@ module.exports.sendLinkToEmail=function(req,res){
 
 				// create reusable transporter object using the default SMTP transport
                 var mailOptions =  {
-                    from:'admin@no-reply<sampleproject888@gmail.com>', 
+                    from:'admin@no-reply<>', 
                     to:data[0].email, 
                     subject:'password Chage Link', 
                     html:'<p>Please Click the link to Reset Your password</p> <a href='+link+'>Click To Reset Password </a> ' // html body
@@ -98,10 +98,10 @@ module.exports.changePassword=function(req,res){
 
 				// create reusable transporter object using the default SMTP transport
                 var mailOptions =  {
-                    from:'admin@no-reply<sampleproject888@gmail.com>', 
+                    from:'admin@no-reply<>', 
                     to:data[0].email, 
                     subject:'Your Password Changed ', 
-                    html:'<p>You have Successfully changed your password. Please click the link to login</p> <a href= "http://192.168.150.69:3000/" >Click To Login </a> ' // html body
+                    html:'<p>You have Successfully changed your password. Please click the link to login</p> <a href= "" >Click To Login </a> ' // html body
 
                 };
                 transporter.sendMail(mailOptions, function (err, res) {

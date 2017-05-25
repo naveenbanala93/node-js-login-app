@@ -1,7 +1,7 @@
 var mongoose=require('mongoose');
 
-//mongoose.connect('mongodb://naveen:chintu@ds137100.mlab.com:37100/sairam');
-mongoose.connect('mongodb://sample:sample@ds129031.mlab.com:29031/sampledb');
+
+mongoose.connect('');
 var usersSchema=mongoose.Schema({
 
 	firstname:String,
