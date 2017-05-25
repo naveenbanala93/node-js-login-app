@@ -1,4 +1,4 @@
-var Users=require('../models/UserSchema');
+// var Users=require('../models/UserSchema');
 var bcrypt=require('bcrypt');
 var express = require('express');
 var router = express.Router();
@@ -77,5 +77,15 @@ router.post('/changePassword',function(req,res,next){
 });
 
 
+
+
+
+
+router.get('/test/:id',function(req,res,next){
+	req.session.demo="this is session";
+	var Id=req.params.id;
+	console.log(Id);
+	res.send('sessions handling');
+});
 
 module.exports = router;

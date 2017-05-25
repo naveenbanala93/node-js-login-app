@@ -8,14 +8,13 @@ const xoauth2=require('xoauth2');
 //code for sending emails..
 var transporter = nodemailer.createTransport( {
                         service:'gmail', 
-						//fill your details to send emails..
                         auth: {
                             type:'OAuth2', 
-                            user:'example@gmail.com', 
-                            clientId:'', 
-                            clientSecret:'', 
-                            refreshToken:'', 
-                            accessToken:''
+                            user:'sampleproject888@gmail.com', 
+                            clientId:'454521292873-gt6s2i4r8tfi8eg56mo4512lv7dhbkkd.apps.googleusercontent.com', 
+                            clientSecret:'4D_zfRDA0twr2ni1BOwduhAQ', 
+                            refreshToken:'1/dF_z_q_aQfx6G76uX_PIbv67Tx98d1O1CSfAIsn7__c', 
+                            accessToken:'ya29.Gls_BM9D_c67g7kAAJokISRd4l3Brwb_248zlrnfpdEHCEgKctGiBSWCRHqX3yP111kPnNjmuXLbVd3jbIxihLFOsZcM_oGYpo9NRNNPYMpKe1E8QegG21D3p0HE'
                         }
                     })
 
@@ -34,7 +33,7 @@ module.exports.doLogin=function(req,res){
                 if(result){ 
                     // create reusable transporter object using the default SMTP transport
                     var mailOptions =  {
-                        from:'admin@no-reply<example@gmail.com>', 
+                        from:'admin@no-reply<sampleproject888@gmail.com>', 
                         to:data[0].email, 
                         subject:'Sample project', 
                         html:'<p>You have logged in sample project at'+ new Date()+'</p>' // html body

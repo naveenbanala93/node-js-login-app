@@ -13,9 +13,16 @@
        
 		<title>Welcome</title>
 	</head>
-	<body class="bodybackground">
-
-        
+<body class="bodybackground">
+<%if(linkMessage){%>
+<h3 align="center"><%=linkMessage%></h3>
+<%}%>
+ <%if(changeMessage){%>
+<h3 align="center"><%=changeMessage%></h3>
+<%}%>
+ <%if(registerMessage){%>
+<h3 align="center"><%=registerMessage%></h3>
+<%}%>
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">

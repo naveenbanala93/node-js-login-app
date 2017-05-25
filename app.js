@@ -6,6 +6,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session=require('express-session');
 var multer=require('multer');
+var flash = require('express-flash');
+var mongoose=require('mongoose');
+
+
+
+//var FlashMessages = require('flash-messages');
+//var flash = require('connect-flash');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -28,7 +35,10 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   //cookie: { secure: true }
-}))
+}));
+ app.use(flash());
+//app.use(FlashMessages.init);
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use( express.static( "D:/node js/node js projects/project3images" ) );
 

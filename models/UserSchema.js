@@ -1,6 +1,7 @@
 var mongoose=require('mongoose');
-mongoose.connect('conncetion to mongo db');
 
+//mongoose.connect('mongodb://naveen:chintu@ds137100.mlab.com:37100/sairam');
+mongoose.connect('mongodb://sample:sample@ds129031.mlab.com:29031/sampledb');
 var usersSchema=mongoose.Schema({
 
 	firstname:String,
