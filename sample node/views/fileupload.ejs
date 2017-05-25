@@ -1,0 +1,59 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <title>File Uploading Form</title>
+
+      <style>
+      .background{
+
+         background-color: #FFE4C4
+      }
+      .submitbtn {
+    width: 126px;
+    height: 54px;
+    background-color: #3baed8;
+    border: none;
+    float:right ;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+      </style>
+
+
+
+   </head>
+
+   <body class="background">
+
+      <div class="container">
+         <div class="row main">
+            <div class="panel-heading">
+                  <div class="panel-title text-center">
+                        <h1 class="title">File Upload Form</h1>
+                        <hr />
+                     </div>
+               </div> 
+            <div class="main-login main-center">
+               <form class="form-horizontal" action="/fileUploaded" method="post"
+                  enctype = "multipart/form-data" >
+                  
+                  <div class="form-group">
+                     <label for="file" class="cols-sm-2 control-label">Select a file to upload: </label>
+                     <div class="cols-sm-10">
+                        <div class="input-group">
+                           <input type="file" class="form-control" name="file" id="file" />
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="form-group col-md-2 " >
+                     <button type="submit" class="btn btn-primary btn-lg btn-block login-button submitbtn">Upload </button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
