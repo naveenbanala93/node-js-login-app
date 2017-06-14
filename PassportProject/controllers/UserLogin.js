@@ -30,5 +30,5 @@ var User=require('../model/UserSchema');
     
   		
 
-	res.json({data:'biscuit'});
+	//res.json({data:'biscuit'});
  }

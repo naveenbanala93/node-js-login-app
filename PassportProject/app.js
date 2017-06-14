@@ -6,9 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var bcryptjs = require('bcryptjs');
-var session =require('express-session');
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 var index = require('./routes/index');
@@ -28,8 +28,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 // Express Session
 app.use(session({
     secret: 'secret',
@@ -40,6 +38,7 @@ app.use(session({
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use('/', index);
 app.use('/users', users);

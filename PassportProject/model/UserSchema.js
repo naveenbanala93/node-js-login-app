@@ -25,7 +25,7 @@ module.exports.getUserByUsername=function(username,callback){
 
 	var query={email:username};
 	User.find(query,callback,function(data){
-		console.log(data);
+		//console.log(data);
 	});
 
 }
